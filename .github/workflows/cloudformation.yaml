@@ -15,7 +15,7 @@ jobs:
 
       - name: Show Dirs
         run: ls -l
-        
+
       # Configure AWS Credential
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -31,3 +31,4 @@ jobs:
           name: hello-world-lambda-stack
           template: template/helloWorld.yaml
           no-fail-on-empty-changeset: "1"
+          capabilities: "CAPABILITY_IAM"
