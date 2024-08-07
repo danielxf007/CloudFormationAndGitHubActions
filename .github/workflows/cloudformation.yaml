@@ -12,7 +12,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout from branch
         uses: actions/checkout@v4
-      
+
+      - name: Show Dirs
+        run: ls -l
+        
       # Configure AWS Credential
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
