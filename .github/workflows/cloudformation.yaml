@@ -1,8 +1,8 @@
 name: LambdaCreation
 on: 
   push:
-    paths:
-      - "template/**"
+    path:
+    - "template/**"
     branches: [hello_world_lambda]
 
 jobs:
