@@ -36,7 +36,7 @@ Resources:
           def lambda_handler(event,context):
               print(event)
               print(context)
-              print("Hello World From Lambda Func")
+              print("Hello World From Lambda")
               return "Finished"     
       Handler: index.lambda_handler
       Role: !GetAtt HelloWorldLambdaIAMRole.Arn
