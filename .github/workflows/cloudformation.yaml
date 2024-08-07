@@ -1,7 +1,7 @@
 name: LambdaCreation
 on: 
   push:
-    path:
+    paths:
     - "template/**"
     branches: [hello_world_lambda]
 
