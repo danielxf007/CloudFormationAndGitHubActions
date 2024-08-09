@@ -1,0 +1,29 @@
+name: UpdateLambdaCode
+
+on:
+  push:
+    paths:
+      - "src/**"
+    branches: [lambda_code_github]
+
+
+jobs:
+  update_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout from branch
+        uses: actions/checkout@v4
+
+      - name: Install zip tool
+        uses: montudor/action-zip@v1
+
+      - name: Create Zip file for Lambda
+        run: cd src && zip -r code.zip .
+
+      - name: AWS CLI v2
+        uses: imehedi/actions-awscli-v2@latest
+        with:
+          args: "lambda update-function-code \
+            --function-name ${{ secrets.LAMBDA_ARN }} \
+            --zip-file fileb://src/code.zip"
