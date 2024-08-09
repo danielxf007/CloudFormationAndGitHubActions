@@ -30,8 +30,8 @@ Resources:
   
   HelloWorldLambda:
     Type: AWS::Lambda::Function
+    FunctionName: simple_lambda
     Properties:
-      FunctionName: simple_lambda
       Code:
         ZipFile: |
           def lambda_handler(event,context):
