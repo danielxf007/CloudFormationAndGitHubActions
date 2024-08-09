@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+
+  HelloWorldLambdaIAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: /
+      Policies:
+        - PolicyName: simple_lambda_policy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: arn:aws:logs:*:*:*
+
+  
+  HelloWorldLambda:
+    Type: AWS::Lambda::Function
+    FunctionName: simple_lambda
+    Properties:
+      Code:
+        ZipFile: |
+          def lambda_handler(event,context):
+              print(event)
+              print(context)
+              print("Hello World From Lambda Function")
+              return "Finished"     
+      Handler: index.lambda_handler
+      Role: !GetAtt HelloWorldLambdaIAMRole.Arn
+      Runtime: python3.10
+      Timeout: 10   
