@@ -1,4 +1,4 @@
-mname: Deploy
+name: Deploy
 
 on:
   push:
@@ -13,14 +13,14 @@ jobs:
       - name: Get on branch dir
         uses: actions/checkout@v4
 
-    - name: Show working dir
-      run: ls -a
+      - name: Show working dir
+        run: ls -a
 
-    # Configure AWS Credential
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-        aws-secret-access-key: ${{ secrets.ACCESS_KEY_SECRET }}
-        aws-region: "us-east-1"
+      # Configure AWS Credential
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.ACCESS_KEY_SECRET }}
+          aws-region: "us-east-1"
   
