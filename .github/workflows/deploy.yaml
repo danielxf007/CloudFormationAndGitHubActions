@@ -15,12 +15,9 @@ jobs:
 
       - name: Show working dir
         run: ls -a
+      
+      - name: Running Deploy SH
+        run: deploy.sh
+        shell: bash
 
-      # Configure AWS Credential
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.ACCESS_KEY_SECRET }}
-          aws-region: "us-east-1"
   
