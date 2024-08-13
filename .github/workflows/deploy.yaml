@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     paths:
-      - "./deploy.sh"
+      - "deploy.sh"
     branches: [lambda_api_data_extractor]
 
 jobs:
