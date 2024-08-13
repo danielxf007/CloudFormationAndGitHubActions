@@ -12,6 +12,7 @@ create_lambda() {
 deploy_lambda_code() {
     echo "Deployed Lambda Code"
 }
+subcommand=$1
 
 case "$subcommand" in
     create-bucket) create_bucket "$@"; exit;;
