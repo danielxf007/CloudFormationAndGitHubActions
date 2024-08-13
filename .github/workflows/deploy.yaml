@@ -18,8 +18,12 @@ jobs:
       - name: Adding permission to sh
         run: chmod +x deploy.sh
       
+      - name: Show working dir
+        run: ls -l
+
+
       - name: Running Deploy SH
-        run: ./deploy.sh create_bucket
+        run: ./deploy.sh create-bucket
         shell: bash
 
   
