@@ -1,6 +1,7 @@
 #!/bin/bash
 
 create_bucket() {
+    
   echo "Deployed Bucket"
 }
 
