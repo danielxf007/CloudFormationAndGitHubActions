@@ -22,8 +22,18 @@ jobs:
         run: ls -l
 
 
-      - name: Running Deploy SH
+      - name: Creating S3 bucket
         run: ./deploy.sh create-bucket
         shell: bash
+
+      - name: Creating Lambda func
+        run: ./deploy.sh create-lambda
+        shell: bash
+
+
+      - name: Updating Lambda code
+        run: ./deploy.sh deploy-lambda-code
+        shell: bash
+
 
   
