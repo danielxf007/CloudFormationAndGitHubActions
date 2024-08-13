@@ -16,7 +16,7 @@ jobs:
         run: ls -a
       
       - name: Running Deploy SH
-        run: deploy.sh create_bucket
+        run: ./deploy.sh create_bucket
         shell: bash
 
   
