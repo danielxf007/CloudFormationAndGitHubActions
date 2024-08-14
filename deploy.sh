@@ -6,7 +6,7 @@ create_bucket() {
   REGION="us-east-1"
 
   echo $STACK_NAME
-  echo ${env.AWS_REGION}
+  echo $AWS_REGION
   echo "Deployed Bucket"
 }
 
