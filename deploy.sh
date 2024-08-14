@@ -3,13 +3,11 @@
 create_bucket() {
 
   STACK_NAME=bucker-deployment
-  DOMAIN_AWS_PROFILE="default"
-  REGION=$(aws configure get region --profile "$DOMAIN_AWS_PROFILE")
+  REGION="us-east-1"
 
 
   echo $STACK_NAME
-  echo $DOMAIN_AWS_PROFILE
-  echo $REGION
+  echo ${aws-region}
   echo "Deployed Bucket"
 }
 
