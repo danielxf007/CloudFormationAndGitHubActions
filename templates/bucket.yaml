@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: S3 Bucket Creator
+
+Parameters:
+  bucket_name:
+    Type: String
+
+Resources:
+  Bucket:
+    Type: "AWS::S3::Bucket"
+  BucketName: !Ref bucket_name
