@@ -22,6 +22,12 @@ jobs:
       - name: Show working dir
         run: ls -l
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.ACCESS_KEY_SECRET }}
+          aws-region: "us-east-1"
 
       - name: Creating S3 bucket
         run: ./deploy.sh create-bucket
