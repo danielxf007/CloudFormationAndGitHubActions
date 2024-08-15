@@ -5,7 +5,7 @@ create_bucket() {
 
   STACK_NAME=bucket-deployment
   if ! $(aws cloudformation describe-stacks --stack-name "$STACK_NAME"); then
-    echo "Stack does not exsit ..."
+    echo "Stack does not exist ..."
     echo "Creating Stack ..."
     echo $(aws cloudformation deploy --stack-name "$STACK_NAME" \
           --template-file "$DIRNAME"/templates/bucket.yaml \
@@ -14,9 +14,11 @@ create_bucket() {
           --capabilities "CAPABILITY_NAMED_IAM" \
           --region "$AWS_REGION"
           )
-
+    echo "Deployed Bucket"
+  else
+    echo "Stack exists"
   fi
-  echo "Deployed Bucket"
+  
 }
 
 create_lambda() {
