@@ -8,4 +8,5 @@ Parameters:
 Resources:
   Bucket:
     Type: "AWS::S3::Bucket"
-  BucketName: !Ref bucketName
+    Properties:
+      BucketName: !Ref bucketName
