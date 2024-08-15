@@ -2,9 +2,14 @@
 
 create_bucket() {
 
-  STACK_NAME=bucker-deployment
-  REGION="us-east-1"
-
+  STACK_NAME=bucket-deployment
+  if ! [aws cloudformation stack-exists \
+        --stack-name "$STACK_NAME"
+      ]
+    then
+        echo "-d must be specified when using the crossaccount-cicd-roles command" >&2
+        exit 1
+  fi
   echo $STACK_NAME
   echo $AWS_REGION
   echo "Deployed Bucket"
