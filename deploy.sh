@@ -5,7 +5,7 @@ create_bucket() {
 
   STACK_NAME=bucket-deployment
   if ! $(aws cloudformation describe-stacks --stack-name "$STACK_NAME"); then
-    echo "Stack does not exsit"
+    echo "Stack does not exsit ..."
     echo "Creating Stack ..."
     echo $(aws cloudformation deploy --stack-name "$STACK_NAME" \
           --template-file "$DIRNAME"/templates/bucket.yaml \
