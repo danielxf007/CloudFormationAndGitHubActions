@@ -10,7 +10,7 @@ create_bucket() {
     echo $(aws cloudformation deploy --stack-name "$STACK_NAME" \
           --template-file "$DIRNAME"/templates/bucket.yaml \
           --parameter-overrides \
-            bucket_name="$AWS_BUCKET" \
+            bucketName="$AWS_BUCKET" \
           --capabilities "CAPABILITY_NAMED_IAM" \
           --region "$AWS_REGION"
           )
