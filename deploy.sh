@@ -4,13 +4,7 @@ DIRNAME=$PWD
 create_bucket() {
 
   STACK_NAME=bucket-deployment
-  if ! [aws cloudformation stack-exists \
-        --stack-name "$STACK_NAME"
-      ]
-    then
-        echo "-d must be specified when using the crossaccount-cicd-roles command"
-        
-  fi
+  echo $(aws --version)
   echo $STACK_NAME
   echo $AWS_REGION
   echo "Deployed Bucket"
