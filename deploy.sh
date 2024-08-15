@@ -4,7 +4,9 @@ DIRNAME=$PWD
 create_bucket() {
 
   STACK_NAME=bucket-deployment
-  echo $(aws --version)
+  echo $(aws cloudformation stack-exists \
+        --stack-name "$STACK_NAME")
+
   echo $STACK_NAME
   echo $AWS_REGION
   echo "Deployed Bucket"
