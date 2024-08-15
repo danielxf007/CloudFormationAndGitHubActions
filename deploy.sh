@@ -4,7 +4,7 @@ DIRNAME=$PWD
 create_bucket() {
 
   STACK_NAME=bucket-deployment
-  if $(aws cloudformation describe-stacks --stack-name "$STACK_NAME"); then
+  if ! $(aws cloudformation describe-stacks --stack-name "$STACK_NAME"); then
     echo "Stack does not exsit"
   fi
   echo $STACK_NAME
