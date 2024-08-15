@@ -8,8 +8,7 @@ create_bucket() {
         --stack-name "$STACK_NAME"
       ]
     then
-        echo "-d must be specified when using the crossaccount-cicd-roles command" >&2
-        exit 1
+        echo "-d must be specified when using the crossaccount-cicd-roles command"
   fi
   echo $STACK_NAME
   echo $AWS_REGION
