@@ -41,6 +41,7 @@ jobs:
           aws-region: us-east-1
         env:
           AWS_REGION: us-east-1
+          AWS_BUCKET: ${{ secrets.BUCKET_NAME }}
 
       - name: Creating S3 bucket
         run: ./deploy.sh create-bucket
