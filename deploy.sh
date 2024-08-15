@@ -1,4 +1,5 @@
 #!/bin/bash
+DIRNAME=$PWD
 
 create_bucket() {
 
