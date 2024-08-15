@@ -31,6 +31,13 @@ jobs:
         env:
           AWS_REGION: us-east-1
 
+      - name: AWS CLI v2
+        uses: imehedi/actions-awscli-v2@latest
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.ACCESS_KEY}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.ACCESS_KEY_SECRET}}
+          AWS_DEFAULT_REGION: "us-east-1"
+
       - name: Creating S3 bucket
         run: ./deploy.sh create-bucket
         shell: bash
