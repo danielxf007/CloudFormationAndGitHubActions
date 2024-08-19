@@ -16,23 +16,33 @@ create_bucket() {
           )
     echo "Deployed Bucket"
   else
-    echo "Stack exists"
+    echo "$STACK_NAME Stack exists"
   fi
   
 }
 
 create_lambda() {
-  echo "Deployed Lambda"
+
+  STACK_NAME=lambda-deployment
+  if ! $(aws cloudformation describe-stacks --stack-name "$STACK_NAME"); then
+    echo "Stack does not exist ..."
+    echo "Creating Stack ..."
+    echo $(aws cloudformation deploy --stack-name "$STACK_NAME" \
+          --template-file "$DIRNAME"/templates/lambda.yaml \
+          --parameter-overrides \
+          --capabilities "CAPABILITY_NAMED_IAM" \
+          --region "$AWS_REGION"
+          )
+    echo "Deployed Lambda"
+  else
+    echo "$STACK_NAME Stack exists"
+  fi
 }
 
-deploy_lambda_code() {
-    echo "Deployed Lambda Code"
-}
 subcommand=$1
 
 case "$subcommand" in
     create-bucket) create_bucket "$@"; exit;;
     create-lambda) create_lambda "$@"; exit;;
-    deploy-lambda-code) deploy_lambda_code "$@"; exit;;
     *) echo "Unimplemented command: $subcommand" >&2; exit 1;;
 esac
